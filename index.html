@@ -20,6 +20,9 @@
       try {
         const response = await fetch("https://script.google.com/macros/s/AKfycbz1BDMXPi_nMHnbtpJnvbEh-DVnV81FMwd8suYpXuu1UdeIvNaSIpbz8Gev9c7b326c/exec", {
           method: "POST",
+           headers: {
+            'Content-Type': 'application/json',
+          },
           body: formData,
         });
 
