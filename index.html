@@ -79,9 +79,7 @@
       const data = Object.fromEntries(new FormData(form).entries());
       fetch("https://script.google.com/macros/s/AKfycbz1BDMXPi_nMHnbtpJnvbEh-DVnV81FMwd8suYpXuu1UdeIvNaSIpbz8Gev9c7b326c/exec", {
         method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-          },
+       
         body: JSON.stringify(data),
         
       })
@@ -117,7 +115,7 @@
       // Event Listener: When Municipality Changes
       municipalitySelect.addEventListener('change', () => {
         const selectedMuni = municipalitySelect.value;
-        const schoolSelect = document.getElementById('schoolDropdown');
+        const schoolSelect = document.getElementById('school');
         schoolSelect.innerHTML = '<option value="">-- Select School --</option>';
 
         if (data[selectedMuni]) {
