@@ -48,7 +48,7 @@
         <div><label class="block mb-1 font-medium">MR Refusal (No.)</label><input type="number" name="mr_refusal" class="w-full border p-2 rounded"></div>
         <div><label class="block mb-1 font-medium">MR Refusal (%)</label><input type="number" name="mr_refusal_pct" class="w-full border p-2 rounded" step="0.01" readonly></div>
         <div><label class="block mb-1 font-medium">TD Refusal (No.)</label><input type="number" name="td_refusal" class="w-full border p-2 rounded"></div>
-        <div><label class="block mb-1 font-medium">TD Refusal (%)</label><input type="number" name="td_refusal_pct" class="w-full border p-2 rounded" step="0.01" readonly></div>
+        <div><label class="block mb-1  font-medium">TD Refusal (%)</label><input type="number" name="td_refusal_pct" class="w-full border p-2 rounded" step="0.01" readonly></div>
       </div>
       <div class="mt-6 text-center">
         <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Submit</button>
@@ -81,7 +81,6 @@
       const data = Object.fromEntries(new FormData(form).entries());
       fetch("https://script.google.com/macros/s/AKfycbzhQkEKD4CIJP-SH4CZxJtP9ZfsxNp2OJwsuJSYEo8RT1BvQG6-m7tHF9dEFFmRvbha/exec", {
         method: "POST",
-         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
         headers: { "Content-Type": "application/json" },
       })
@@ -96,7 +95,17 @@
       });
     });
   </script>
-
+<script>
+  function doOptions(e) {
+  return ContentService.createTextOutput('')
+    .setMimeType(ContentService.MimeType.TEXT)
+    .setHeaders({
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    });
+}
+</script>
 <script>
 fetch('schools.json')
   .then(response => response.json())
