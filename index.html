@@ -117,7 +117,7 @@
       // Event Listener: When Municipality Changes
       municipalitySelect.addEventListener('change', () => {
         const selectedMuni = municipalitySelect.value;
-        const schoolSelect = document.getElementById('school');
+        const schoolSelect = document.getElementById('schoolDropdown');
         schoolSelect.innerHTML = '<option value="">-- Select School --</option>';
 
         if (data[selectedMuni]) {
