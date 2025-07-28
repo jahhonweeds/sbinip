@@ -18,9 +18,13 @@
       formData.append("message", form.message.value);
 
       try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbzhQkEKD4CIJP-SH4CZxJtP9ZfsxNp2OJwsuJSYEo8RT1BvQG6-m7tHF9dEFFmRvbha/exec", {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbz1BDMXPi_nMHnbtpJnvbEh-DVnV81FMwd8suYpXuu1UdeIvNaSIpbz8Gev9c7b326c/exec", {
           method: "POST",
+          headers: {
+    'Content-Type': 'application/json',
+  },
           body: formData,
+          
         });
 
         const text = await response.text();
